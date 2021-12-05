@@ -1,0 +1,17 @@
+.wrapper
+{
+  display: block;
+  border:1px solid grey;
+  background: rgb(204, 153, 153);
+  margin-left:auto;
+  margin-right:auto;
+  width: 50%;
+  padding:10px;
+  font-family: sans-serif;
+  text-align: center;
+}
+.table,thead,td
+{
+    width: 50%;
+    border: 2px solid black;
+}
