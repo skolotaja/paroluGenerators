@@ -11,7 +11,22 @@ const vardi3 = ['lien', 'klukst', 'lec', 'lido', 'skrien'];
 //let parole=vardi1[0];
 
 //let parole1 = vardi1[1] + vardi2[1] + vardi3[1];
-//function veidotParoli()
+//function cipariparolei(ciparuSkaits)
+//{
+    //let cipars = String();
+ 
+    //for (let i = 0; i < ciparuSkaits; i++) 
+    //{
+      //cipars += rand(9);
+    //}
+    //return cipars;
+ //}
+ //function generetParoles
+ //{
+    
+        //ciparuSkaits = document.querySelector('#ciparuSkaits').value;
+        //variantuSkaits = document.querySelector('#variantuSkaits').value;
+ //}
 
 for (let i = 0; i <=variantuSkaits; i++) {
     let parole = vardi1[i] + vardi2[i] + vardi3[i];
