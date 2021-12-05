@@ -11,16 +11,16 @@ const vardi3 = ['lien', 'klukst', 'lec', 'lido', 'skrien'];
 //let parole=vardi1[0];
 
 //let parole1 = vardi1[1] + vardi2[1] + vardi3[1];
-//function cipariparolei(ciparuSkaits)
-//{
-    //let cipars = String();
+function cipariparolei(ciparuSkaits)
+{
+    let cipars = String();
  
-    //for (let i = 0; i < ciparuSkaits; i++) 
-    //{
-      //cipars += rand(9);
-    //}
-    //return cipars;
- //}
+    for (let i = 0; i < ciparuSkaits; i++) 
+    {
+      cipars += rand(9);
+    }
+    return cipars;
+ }
  //function generetParoles
  //{
     
