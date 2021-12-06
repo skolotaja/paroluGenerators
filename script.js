@@ -2,43 +2,57 @@
 let tabulasRindas = document.querySelector('.rindas');
 
 let ciparuSkaits;
-let variantuSkaits =4;
+let variantuSkaits;
 let papildusVards;
 
 const vardi1 = ['spalvains', 'karsta', 'spurains', 'mazs', 'samtains'];
 const vardi2 = ['lacis', 'vista', 'ruksis', 'suns', 'sesks'];
 const vardi3 = ['lien', 'klukst', 'lec', 'lido', 'skrien'];
+function rand(maxCipars)
+{
+  random1 = Math.floor( Math.random() * maxCipars );
+  return random1;
+}
+function veidotParoli(papildusVards,ciparuSkaits)
+{
+  let random1 = rand(vardi1.length);
+  let random2 = rand(vardi2.length);
+  let random3 = rand(vardi2.length);
+}
 //let parole=vardi1[0];
 
 //let parole1 = vardi1[1] + vardi2[1] + vardi3[1];
+
 function cipariparolei(ciparuSkaits)
 {
-    let cipars = String();
- 
-    for (let i = 0; i < ciparuSkaits; i++) 
-    {
-      cipars += rand(9);
-    }
-    return cipars;
+ cipars = String();
+
+for (let i = 0; i < ciparuSkaits; i++) 
+{
+cipars += rand(9);
+}
+return cipars;
  }
- //function generetParoles
- //{
-    
-        //ciparuSkaits = document.querySelector('#ciparuSkaits').value;
-        //variantuSkaits = document.querySelector('#variantuSkaits').value;
+function generetParoles()
+{
+
+ciparuSkaits = document.querySelector('#ciparuSkaits').value;
+variantuSkaits = document.querySelector('#variantuSkaits').value;
+
+//tabulasRindas.innerHTML+'';
+for (let i = 0; i <= variantuSkaits; i++) {
+  let parole = vardi1[i] + vardi2[i] + vardi3[i];
+
+  console.log(parole);
+  tabulasRindas.innerHTML += `
+          <tr>
+          <td>`+ (i + 1) + `</td>
+          <td>`+ parole + `</td>
+          </tr>`;
+
+}
+}//cikla beigas
  //}
-
-for (let i = 0; i <=variantuSkaits; i++) {
-    let parole = vardi1[i] + vardi2[i] + vardi3[i];
-
-    console.log(parole);
-    tabulasRindas.innerHTML += `
-    <tr>
-    <td>`+(i+1)+`</td>
-    <td>`+parole+`</td>
-    </tr>`;
-
-  }//loop beigas
     //console.log(parole1);
 
 
