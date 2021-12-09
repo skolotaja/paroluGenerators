@@ -8,17 +8,17 @@ let papildusVards;
 const vardi1 = ['spalvains', 'karsta', 'spurains', 'mazs', 'samtains'];
 const vardi2 = ['lacis', 'vista', 'ruksis', 'suns', 'sesks'];
 const vardi3 = ['lien', 'klukst', 'lec', 'lido', 'skrien'];
-function rand(maxCipars)
+function randFunc(maxCipars)
 {
   random1 = Math.floor( Math.random() * maxCipars );
   return random1;
 }
 function veidotParoli()
 {
-  for (let i = 0; i <= variantuSkaits; i++) {
-  let random1 = rand(vardi1.length);
-  let random2 = rand(vardi2.length);
-  let random3 = rand(vardi3.length);
+  
+  let random1 = randFunc(vardi1.length);
+  let random2 = randFunc(vardi2.length);
+  let random3 = randFunc(vardi3.length);
 
   //let random1 = rand(vardi1);
     //let random2 = rand(vardi2);
@@ -56,11 +56,12 @@ function veidotParoli()
   //let parole = vardi1[i] + vardi2[i] + vardi3[i];
 
   //console.log(parole);
+  for (let i = 0; i <= variantuSkaits; i++) {
   tabulasRindas.innerHTML += `
-          <tr>
+         <tr>
           <td>${i + 1}</td>
-          <td>$ {parole}</td>
-          </tr>`;
+         <td>$ {parole}</td>
+         </tr>`;
 
 }
 }
