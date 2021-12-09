@@ -1,96 +1,106 @@
-
 let tabulasRindas = document.querySelector('.rindas');
-
 let ciparuSkaits;
-let variantuSkaits=5;
+let variantuSkaits;
 let papildusVards;
 
-const vardi1 = ['spalvains', 'karsta', 'spurains', 'mazs', 'samtains'];
-const vardi2 = ['lacis', 'vista', 'ruksis', 'suns', 'sesks'];
-const vardi3 = ['lien', 'klukst', 'lec', 'lido', 'skrien'];
-function randFunc(maxCipars)
+const vardi1 = ['spalvains','karsta','papedis','mazais', 'pinkains'];
+const vardi2 = ['lacis','vista','ruksis','sunis','sesks','kakis'];
+const vardi3 = ['lien','klukst','lec','lido','skrien','naud'];
+
+
+
+function rand(maxCipars)
 {
   random1 = Math.floor( Math.random() * maxCipars );
   return random1;
 }
-function veidotParoli()
+
+
+
+function veidotParoli(papildusVards,ciparuSkaits)
 {
+ let random1 = rand(vardi1.length);
+ let random2 = rand(vardi2.length);
+ let random3 = rand(vardi2.length);
+
+  let paroleVards1 = tekstuSarezgit( vardi1[random1] );
+  paroleVards1 = paroleVards1.replace('a','@');
+ 
+  let paroleVards2;
+
+  if( papildusVards != '' )
+  {
+    paroleVards2 = tekstuSarezgit( papildusVards );
+  }
+  else
+  {
+   paroleVards2 = tekstuSarezgit( vardi2[random2] );
+  }
+
+  let paroleVards3 = tekstuSarezgit( vardi3[random3] );
+
+  let cipari = cipariParolei(ciparuSkaits);
+
+  let parole = paroleVards1+paroleVards2+paroleVards3+cipari;
   
-  let random1 = randFunc(vardi1.length);
-  let random2 = randFunc(vardi2.length);
-  let random3 = randFunc(vardi3.length);
-
-  //let random1 = rand(vardi1);
-    //let random2 = rand(vardi2);
-    //let random3 = rand(vardi3);
-    //parole = vardi1[random1];
-
-    let parole1 = vardi1[random1];
-    //paroleVards1 = paroleVards1.replace('i', '1');
-    let parole2 = vardi1[random2];
-    let parole3 = vardi1[random3];
-
-
-//let parole=vardi1[0];
-
-//let parole1 = vardi1[1] + vardi2[1] + vardi3[1];
-
-//function cipariparolei(ciparuSkaits)
-//{
- //cipars = String();
-
-//for (let i = 0; i < ciparuSkaits; i++) 
-//{
-//cipars += rand(9);
-//}
-//return cipars;
- //}
-// generetParoles()
-//{
-
-//ciparuSkaits = document.querySelector('#ciparuSkaits').value;
-//variantuSkaits = document.querySelector('#variantuSkaits').value;
-//}
-//tabulasRindas.innerHTML+'';
-
-  //let parole = vardi1[i] + vardi2[i] + vardi3[i];
-
-  //console.log(parole);
-  for (let i = 0; i <= variantuSkaits; i++) {
-  tabulasRindas.innerHTML += `
-         <tr>
-          <td>${i + 1}</td>
-         <td>$ {parole}</td>
-         </tr>`;
-
+  return parole;
 }
+
+
+
+function cipariParolei(ciparuSkaits)
+{
+   let cipars = String();
+
+   for (let i = 0; i < ciparuSkaits; i++) 
+   {
+     cipars += rand(9);
+   }
+   return cipars;
 }
-//}//cikla beigas
- //}
-    //console.log(parole1);
+function tekstuSarezgit(teksts)
+{
+  if(rand(10) > 5)
+  {
+  teksts = teksts.replace('i','1');
+ teksts = teksts.replace('a','@');
+ }
+  teksts = lieloPirmoBurtu(teksts);
+
+  return teksts;
+}
+function lieloPirmoBurtu(vards)
+{
+  let pirmaisBurts = vards.substr(0, 1);
+  pirmaisBurts = pirmaisBurts.toUpperCase();
+  let parejaisVards = vards.substr(1);
+
+ return pirmaisBurts+parejaisVards;
+}
 
 
-//function veidotParoli(papildusVards,ciparuSkaits)
 
-//let cipari = cipariParolei(ciparuSkaits);
-//function generetParoles()
-//{
-//ciparuSkaits = document.querySelector('#ciparuSkaits').value;
-//variantuSkaits = document.querySelector('#variantuSkaits').value;
-//}
-
-
-//console.log(i);
-//let random = Math.floor(Math.random() * vardi1.length);
-   
-    //parole = vardi1[random1];
-
+function generetParoles()
+{
+  ciparuSkaits = document.querySelector('#ciparuSkaits').value;
+  variantuSkaits = document.querySelector('#variantuSkaits').value;
+  papildusVards = document.querySelector('#papildusVards').value;
+  tabulasRindas.innerHTML = '';
+  
+  for (let i = 0; i < variantuSkaits; i++) 
+  {
     
-    //paroleVards1 = paroleVards1.replace('i', '1');
     
+    let parole = veidotParoli(papildusVards,ciparuSkaits);
+    
+    tabulasRindas.innerHTML += `
+    <tr>
+    <td>${i+1}</td>
+    <td>${parole}</td>
+    </tr>`;
 
+  }//cikla beigas
 
+}//generetParoles() beigas
 
-
-
-//}
+        
